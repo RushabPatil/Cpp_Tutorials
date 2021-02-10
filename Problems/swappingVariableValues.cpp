@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     //Program for sawpping values of two variables
-    int a = 20;  
+    int a = 20;
     int b = 10;
 
     //solution with third variable
@@ -20,5 +20,4 @@ int main()
     a = a - b;
 
     cout << "a = " << a << "b = " << b << endl;
-
 }

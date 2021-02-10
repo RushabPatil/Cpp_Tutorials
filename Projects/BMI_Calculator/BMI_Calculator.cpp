@@ -2,7 +2,8 @@
 #include <iostream>
 using namespace std;
 
-void main(){
+void main()
+{
 
     //BMI Calculator
     //weight(kg)/height * height(m)
@@ -14,17 +15,14 @@ void main(){
     cout << "weight(kg), height(m): ";
     cin >> weight >> height;
 
-    BMI = weight/(height * height);
+    BMI = weight / (height * height);
 
     cout << "Your Body Mass Index = " << BMI << endl;
 
     if (BMI < 18.5)
-        cout<< "Underweight" << endl;
+        cout << "Underweight" << endl;
     else if (BMI > 25)
         cout << "Overweight" << endl;
     else
         cout << "Normal weight" << endl;
-
-    
-
 }
