@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void main()
 {
     //write out all the numbers between 100-500 that are divisible by 3 and 5
     int counter = 100;
