@@ -6,8 +6,6 @@ using namespace std;
 //fruit class - banana, apple
 //car class - ford, mercedes
 
-//Encapsulation - using method to get the class attributes
-
 //class is a user defined data type
 class YoutubeChannel
 {
@@ -28,7 +26,7 @@ public:
         SubscribersCount = 0;
     }
 
-    //Modifier Methods 
+    //Modifier Methods
     //increase subscribers counter
     void subscribe()
     {
@@ -79,7 +77,26 @@ public:
     {
         cout << SubscribersCount;
     }
+};
 
+//For creating a specific class with extra attributes than the base class you use inheritance
+//Base Class - YoutubeChannel
+//Derived Class - cookingYoutubeChannel
+class cookingYoutubeChannel : public YoutubeChannel
+{
+
+public:
+    //Constructor - assign initial value to the created object
+    cookingYoutubeChannel(string name, string ownerName) : YoutubeChannel(name, ownerName)
+    {
+    }
+
+    //method only available to derived class
+    //base class would not be able to access this method
+    void Practice()
+    {
+        cout << "practicing cooking, learning new recipes" << endl;
+    }
 };
 
 //creating many objects of same type would require repeating same code many times
@@ -87,11 +104,8 @@ public:
 //Constructor is a method that is called at construction of each object
 int main()
 {
-    YoutubeChannel channel1("MrBeast", "Jake");
-    channel1.publishVideo("Icecream most expensive"); //Push Back - Method for adding element  to the list
-
-    YoutubeChannel channel2("Pewdiepie", "No leg Felix");
-
-    channel1.getInfo();
-    channel2.getInfo();
+    cookingYoutubeChannel bingeWithBabish("Binging With Babish", "Babish");
+    bingeWithBabish.publishVideo("Basics with Babish");
+    bingeWithBabish.subscribe();
+    bingeWithBabish.getInfo();
 }
