@@ -6,6 +6,10 @@ using namespace std;
 //fruit class - banana, apple
 //car class - ford, mercedes
 
+//Polymorphism - Two or more objects inheriting from the same class
+//but has different implementation of the methods from the base class but
+//with different implementaton
+
 //class is a user defined data type
 class YoutubeChannel
 {
@@ -18,6 +22,7 @@ private:
 
 protected:
     string OwnerName;
+    int contentQuality;
 
 public:
     //Constructor - assign initial value to the created object
@@ -26,6 +31,7 @@ public:
         Name = name;
         OwnerName = ownerName;
         SubscribersCount = 0;
+        contentQuality = 0;
     }
 
     //Modifier Methods
@@ -79,6 +85,15 @@ public:
     {
         cout << SubscribersCount;
     }
+
+    //check youtube channel analytics
+    void checkAnalytics()
+    {
+        if (contentQuality < 5)
+            cout << Name << " has bad quality content!" << endl;
+        else
+            cout << Name << " has great content!" << endl;
+    }
 };
 
 //For creating a specific class with extra attributes than the base class you use inheritance
@@ -98,17 +113,46 @@ public:
     void Practice()
     {
         cout << OwnerName << " is practicing cooking, learning new recipes!" << endl;
+        contentQuality++;
     }
 };
 
+class singerYoutubeChannel : public YoutubeChannel
+{
+
+public:
+    //Constructor - assign initial value to the created object
+    singerYoutubeChannel(string name, string ownerName) : YoutubeChannel(name, ownerName)
+    {
+    }
+
+    //method only available to derived class
+    //base class would not be able to access this method
+    void Practice()
+    {
+        cout << OwnerName << " is practicing singing and learning how to dance!" << endl;
+        contentQuality++;
+    }
+};
 //creating many objects of same type would require repeating same code many times
 //To resolve this issue we use class constructor
 //Constructor is a method that is called at construction of each object
 int main()
 {
     cookingYoutubeChannel bingeWithBabish("Binging With Babish", "Babish");
-    bingeWithBabish.publishVideo("Basics with Babish");
-    bingeWithBabish.subscribe();
-    bingeWithBabish.getInfo();
+    singerYoutubeChannel singWithMe("Sing with me", "Poop emoji");
+
     bingeWithBabish.Practice();
+    singWithMe.Practice();
+    singWithMe.Practice();
+    singWithMe.Practice();
+    singWithMe.Practice();
+
+    YoutubeChannel* yt1 = &bingeWithBabish;
+    YoutubeChannel* yt2 = &singWithMe;
+
+    yt1->checkAnalytics();
+    yt2->checkAnalytics();
+
+
 }
