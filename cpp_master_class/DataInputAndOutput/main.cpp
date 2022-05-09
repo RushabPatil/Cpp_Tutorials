@@ -12,7 +12,7 @@ int main() {
     std::cin >> name >> age1;
 
     std::cout << "Hello " << name << " you are " << age1 << " years old" << std::endl;
-
+    
     */
 
     // Data with spaces
