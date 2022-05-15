@@ -51,6 +51,36 @@ auto result1 = [](double a, double b)-> int {
     return a + b;   
 };
 
+//capture everything by value
+
+int c{43};
+
+auto lambFunction = [=]() {
+  std::cout << c << std::endl;
+};
+
+// for(size_t i = 0; i < 10; ++i) {
+//   std::cout << "outer value"  << c << std::endl;
+//   lambFunction();
+//   ++c;
+// }
+
+
+//capture everything by reference
+auto lambFunction1 = [&]() {
+  std::cout << c << std::endl;
+};
+
+
+for(size_t i = 0; i < 10; ++i) {
+  std::cout << "outer value"  << c << std::endl;
+  lambFunction1();
+  ++c;
+}
+
+
+
+
 return 0;
 
 }
