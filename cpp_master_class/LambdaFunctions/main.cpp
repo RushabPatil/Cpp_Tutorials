@@ -59,11 +59,11 @@ auto lambFunction = [=]() {
   std::cout << c << std::endl;
 };
 
-// for(size_t i = 0; i < 10; ++i) {
-//   std::cout << "outer value"  << c << std::endl;
-//   lambFunction();
-//   ++c;
-// }
+for(size_t i = 0; i < 10; ++i) {
+  std::cout << "outer value"  << c << std::endl;
+  lambFunction();
+  ++c;
+}
 
 
 //capture everything by reference
@@ -73,7 +73,7 @@ auto lambFunction1 = [&]() {
 
 
 for(size_t i = 0; i < 10; ++i) {
-  std::cout << "outer value"  << c << std::endl;
+  std::cout << "outer value :"  << c << std::endl;
   lambFunction1();
   ++c;
 }
